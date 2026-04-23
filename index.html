@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>青苹果 2026 暑期夏令营 · 精品小班课 · 全面招生</title>
+  <style>
+    :root {
+      --green:  #3a9e5f;
+      --dkgreen: #2c7a48;
+      --apple:  #5bbf7a;
+      --gold:   #f5a623;
+      --orange: #f07b3f;
+      --blue:   #3b82f6;
+      --purple: #7c3aed;
+      --pink:   #ec4899;
+      --bg:     #f9fafb;
+      --card:   #ffffff;
+      --text:   #1f2937;
+      --muted:  #6b7280;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(145deg, #1a5c34 0%, #2d9e5f 50%, #4cc87e 100%);
+      color: #fff;
+      text-align: center;
+      padding: 48px 20px 36px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,.12) 0%, transparent 60%);
+    }
+    .hero .logo-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: 13px; font-weight: 600; letter-spacing: 1px;
+      margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: 28px; font-weight: 900; line-height: 1.25;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(0,0,0,.25);
+    }
+    .hero h1 span { color: #ffd700; }
+    .hero .sub {
+      font-size: 15px; opacity: .9; margin-bottom: 24px;
+    }
+    .hero .badges {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+      margin-bottom: 28px;
+    }
+    .hero .badge {
+      background: rgba(255,255,255,.2);
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+      padding: 5px 14px; font-size: 13px; font-weight: 600;
+    }
+    .hero .price-row {
+      display: flex; justify-content: center; flex-wrap: wrap; gap: 12px;
+    }
+    .price-card {
+      background: rgba(255,255,255,.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 14px;
+      padding: 14px 20px; min-width: 130px;
+      text-align: center;
+    }
+    .price-card .label { font-size: 12px; opacity: .85; }
+    .price-card .amount { font-size: 24px; font-weight: 800; color: #ffd700; }
+    .price-card .note { font-size: 11px; opacity: .75; }
+    .price-card.hot { background: rgba(240,123,63,.45); border-color: #f5a623; }
+
+    /* ── Sections ── */
+    section { padding: 28px 16px; }
+    .section-title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 20px; font-weight: 800; margin-bottom: 20px;
+      color: var(--dkgreen);
+    }
+    .section-title .icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+
+    /* ── Highlight bar ── */
+    .highlight-bar {
+      background: linear-gradient(90deg, #e8f9ee, #d1f5e0);
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    .highlight-bar strong { color: var(--dkgreen); }
+
+    /* ── Course Grid ── */
+    .course-grid { display: flex; flex-direction: column; gap: 14px; }
+    .course-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      overflow: hidden;
+    }
+    .course-card .card-header {
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .course-card .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .course-card .card-title { font-size: 16px; font-weight: 700; }
+    .course-card .card-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .course-card .card-body { padding: 0 16px 16px; }
+    .course-card .card-body p { font-size: 13.5px; color: #374151; margin-bottom: 8px; }
+    .course-card .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0; }
+    .tag {
+      border-radius: 999px; padding: 3px 11px;
+      font-size: 12px; font-weight: 600;
+    }
+    .course-card .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 8px; margin-top: 10px;
+    }
+    .info-item {
+      background: #f3f4f6; border-radius: 10px;
+      padding: 8px 10px;
+    }
+    .info-item .il { font-size: 11px; color: var(--muted); }
+    .info-item .iv { font-size: 13px; font-weight: 700; margin-top: 1px; }
+    .price-tag {
+      display: inline-flex; align-items: baseline; gap: 4px;
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      border: 1px solid #f59e0b;
+      border-radius: 10px; padding: 8px 14px; margin-top: 10px;
+    }
+    .price-tag .amount { font-size: 22px; font-weight: 800; color: #b45309; }
+    .price-tag .unit { font-size: 12px; color: #78350f; }
+    .price-tag .old { font-size: 12px; color: #9ca3af; text-decoration: line-through; margin-left: 4px; }
+    .bullet-list { list-style: none; padding: 0; }
+    .bullet-list li {
+      padding: 5px 0; font-size: 13.5px;
+      display: flex; align-items: flex-start; gap: 7px;
+    }
+    .bullet-list li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+    /* ── Color themes per course ── */
+    .theme-green .card-header { background: linear-gradient(90deg, #ecfdf5, #d1fae5); }
+    .theme-green .card-icon { background: #d1fae5; }
+    .theme-blue .card-header { background: linear-gradient(90deg, #eff6ff, #dbeafe); }
+    .theme-blue .card-icon { background: #dbeafe; }
+    .theme-purple .card-header { background: linear-gradient(90deg, #f5f3ff, #ede9fe); }
+    .theme-purple .card-icon { background: #ede9fe; }
+    .theme-pink .card-header { background: linear-gradient(90deg, #fdf2f8, #fce7f3); }
+    .theme-pink .card-icon { background: #fce7f3; }
+    .theme-orange .card-header { background: linear-gradient(90deg, #fff7ed, #ffedd5); }
+    .theme-orange .card-icon { background: #ffedd5; }
+    .theme-gold .card-header { background: linear-gradient(90deg, #fffbeb, #fef3c7); }
+    .theme-gold .card-icon { background: #fef3c7; }
+    .theme-teal .card-header { background: linear-gradient(90deg, #f0fdfa, #ccfbf1); }
+    .theme-teal .card-icon { background: #ccfbf1; }
+
+    .tag-green { background: #d1fae5; color: #065f46; }
+    .tag-blue  { background: #dbeafe; color: #1e40af; }
+    .tag-purple{ background: #ede9fe; color: #5b21b6; }
+    .tag-pink  { background: #fce7f3; color: #9d174d; }
+    .tag-orange{ background: #ffedd5; color: #9a3412; }
+    .tag-gold  { background: #fef3c7; color: #92400e; }
+    .tag-teal  { background: #ccfbf1; color: #134e4a; }
+
+    /* ── Teacher Section ── */
+    .teacher-grid { display: flex; flex-direction: column; gap: 12px; }
+    .teacher-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .teacher-avatar {
+      width: 48px; height: 48px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+      background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    }
+    .teacher-name { font-size: 15px; font-weight: 700; }
+    .teacher-title { font-size: 12px; color: var(--green); font-weight: 600; margin: 2px 0; }
+    .teacher-desc { font-size: 12.5px; color: var(--muted); }
+
+    /* ── Schedule Table ── */
+    .schedule-table {
+      width: 100%; border-collapse: collapse;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    }
+    .schedule-table th {
+      background: var(--green); color: #fff;
+      padding: 10px 12px; font-size: 13px; text-align: left;
+    }
+    .schedule-table td {
+      padding: 10px 12px; font-size: 13px;
+      border-bottom: 1px solid #f3f4f6;
+      background: #fff;
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table tr:nth-child(even) td { background: #f9fafb; }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: linear-gradient(145deg, #1a5c34, #2d9e5f);
+      color: #fff;
+      padding: 36px 20px;
+      text-align: center;
+    }
+    .cta-section h2 { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+    .cta-section p { font-size: 14px; opacity: .9; margin-bottom: 24px; }
+    .contact-cards { display: flex; flex-direction: column; gap: 12px; max-width: 340px; margin: 0 auto 24px; }
+    .contact-card {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 14px; padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .contact-card .ci { font-size: 22px; }
+    .contact-card .cl { font-size: 11px; opacity: .8; }
+    .contact-card .cv { font-size: 15px; font-weight: 700; }
+    .cta-btn {
+      display: inline-block;
+      background: #ffd700; color: #1a5c34;
+      font-size: 16px; font-weight: 800;
+      border-radius: 999px; padding: 14px 40px;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,.2);
+    }
+
+    /* ── Sticky CTA ── */
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      padding: 12px 16px;
+      display: flex; gap: 10px; align-items: center;
+      z-index: 100;
+      box-shadow: 0 -4px 16px rgba(0,0,0,.1);
+    }
+    .sticky-bar .tel {
+      flex: 1;
+      background: var(--green); color: #fff;
+      border: none; border-radius: 12px;
+      padding: 12px; font-size: 15px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .sticky-bar .wechat {
+      flex: 1;
+      background: #07c160; color: #fff;
+      border: none; border-radius: 12px;
+      padding: 12px; font-size: 15px; font-weight: 700;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+
+    /* ── Daily Schedule Visual ── */
+    .daily-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+    }
+    .daily-item {
+      background: #fff; border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: 0 1px 6px rgba(0,0,0,.07);
+      font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .daily-item .emoji { font-size: 20px; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 8px;
+      background: linear-gradient(90deg, #ecfdf5, #d1fae5, #ecfdf5);
+    }
+
+    /* padding for sticky bar */
+    body { padding-bottom: 72px; }
+
+    .footer {
+      text-align: center; padding: 20px;
+      font-size: 12px; color: var(--muted);
+      background: #f3f4f6;
+    }
+    .section-bg-light { background: #f0fdf4; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="logo-badge">🍏 Green Apple Art Academy</div>
+  <h1>2026 暑期夏令营<br/><span>全面招生啦！</span></h1>
+  <p class="sub">学习 · 艺术 · 表达 · 体能 · 四维融合成长</p>
+  <div class="badges">
+    <span class="badge">📅 5/25 – 7/31</span>
+    <span class="badge">⏰ 8:30am – 5:30pm</span>
+    <span class="badge">👧 K–8 年级</span>
+    <span class="badge">📍 Chandler AZ</span>
+  </div>
+  <div class="price-row">
+    <div class="price-card">
+      <div class="label">常规营 / 周</div>
+      <div class="amount">$320</div>
+    </div>
+    <div class="price-card hot">
+      <div class="label">🔥 早鸟价（5/25前）</div>
+      <div class="amount">$300</div>
+      <div class="note">提前报名立省 $20</div>
+    </div>
+    <div class="price-card">
+      <div class="label">✨ 精品小班课 / 周</div>
+      <div class="amount">$150起</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ CAMP INTRO ══════════════ -->
+<section>
+  <div class="section-title">
+    <div class="icon" style="background:#d1fae5;">🌟</div>
+    课程全面升级 · 快乐成长每一天
+  </div>
+
+  <div class="highlight-bar">
+    <strong>青苹果2026夏令营</strong>融合学习 + 艺术 + 表达 + 体能，小班精品强化 + 全日营地看护，让孩子快乐成长的同时真正拉开差距！
+  </div>
+
+  <p style="font-size:14px;color:#374151;margin-bottom:14px;font-weight:600;">🎨 每日特色课程包括：</p>
+  <div class="daily-grid">
+    <div class="daily-item"><span class="emoji">📚</span>中文</div>
+    <div class="daily-item"><span class="emoji">🎭</span>音乐剧</div>
+    <div class="daily-item"><span class="emoji">🧮</span>数学</div>
+    <div class="daily-item"><span class="emoji">🎨</span>美术</div>
+    <div class="daily-item"><span class="emoji">💃</span>舞蹈</div>
+    <div class="daily-item"><span class="emoji">🎤</span>声乐</div>
+    <div class="daily-item"><span class="emoji">👗</span>服装设计</div>
+    <div class="daily-item"><span class="emoji">🏺</span>陶艺</div>
+    <div class="daily-item"><span class="emoji">🍰</span>烘焙</div>
+    <div class="daily-item"><span class="emoji">♟️</span>象棋</div>
+    <div class="daily-item"><span class="emoji">🏃</span>体智能训练</div>
+    <div class="daily-item"><span class="emoji">🪢</span>跳绳比赛</div>
+  </div>
+
+  <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:14px;padding:14px 16px;margin-top:16px;">
+    <p style="font-size:13.5px;font-weight:700;color:#9a3412;margin-bottom:6px;">🍱 营地贴心服务</p>
+    <p style="font-size:13px;color:#374151;">提供营养午餐服务（中西餐搭配），省去家长每日准备餐食的烦恼</p>
+  </div>
+  <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:14px;padding:14px 16px;margin-top:10px;">
+    <p style="font-size:13.5px;font-weight:700;color:#5b21b6;margin-bottom:6px;">🎓 高中生义工机会</p>
+    <p style="font-size:13px;color:#374151;">提供助教实践机会，提升责任感 + 履历加分 + 领导力培养</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ SMALL CLASS ══════════════ -->
+<section class="section-bg-light">
+  <div class="section-title">
+    <div class="icon" style="background:#dbeafe;">🚀</div>
+    精品小班强化课程
+  </div>
+  <div class="highlight-bar">
+    <strong>真正小班 · 针对性提升 · 效果更明显</strong><br/>
+    为不同需求孩子量身打造，这个暑假让孩子真正拉开差距！
+  </div>
+
+  <div class="course-grid">
+
+    <!-- 中文 -->
+    <div class="course-card theme-green">
+      <div class="card-header">
+        <div class="card-icon">📚</div>
+        <div>
+          <div class="card-title">趣味中文班 · 智慧生命的文化之旅</div>
+          <div class="card-sub">适合 6–11 岁 · 主讲：王蓉老师</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-green">激发求知兴趣</span>
+          <span class="tag tag-green">情景表达训练</span>
+          <span class="tag tag-green">大语文观</span>
+        </div>
+        <ul class="bullet-list">
+          <li>有感情地表达，提升观察与思考能力</li>
+          <li>挖掘潜力，培养想象力</li>
+          <li>完成主题作品（诵读 / 表演 / 海报）</li>
+        </ul>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="il">上课时间</div>
+            <div class="iv">10:00–12:00 AM</div>
+          </div>
+          <div class="info-item">
+            <div class="il">班型</div>
+            <div class="iv">小班，满6人开班</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#6b7280;margin-top:8px;">
+          📅 开课：05/25–06/05 · 07/06–07/17 · 07/20–07/31
+        </p>
+        <div class="price-tag">
+          <span class="amount">$150</span>
+          <span class="unit">/ 周</span>
+          <span class="old">两周享9折优惠！</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 数学 -->
+    <div class="course-card theme-blue">
+      <div class="card-header">
+        <div class="card-icon">🧠</div>
+        <div>
+          <div class="card-title">数学思维提升班 · 暑期数学培优</div>
+          <div class="card-sub">G1–G9 · 主讲：韩涵老师</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-blue">3–5人精品小班</span>
+          <span class="tag tag-blue">入班测评分层</span>
+          <span class="tag tag-blue">衔接新学期</span>
+        </div>
+        <ul class="bullet-list">
+          <li>G1–G6：补基础、提成绩、提前预习新学期</li>
+          <li>G7–G9：提成绩、拓展思维、为SAT做准备</li>
+          <li>四则运算 · 分数小数 · 方程 · 几何 · 应用题</li>
+        </ul>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="il">精英班</div>
+            <div class="iv">9:00–10:30am</div>
+          </div>
+          <div class="info-item">
+            <div class="il">火箭班</div>
+            <div class="iv">10:30–12:00am</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#6b7280;margin-top:8px;">
+          📅 一期5/25·二期6/8·三期6/22·四期7/6（每期2周）
+        </p>
+        <div class="price-tag">
+          <span class="amount">$299</span>
+          <span class="unit">/ 期 10次课</span>
+          <span class="old">原价$499</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 服装设计 -->
+    <div class="course-card theme-pink">
+      <div class="card-header">
+        <div class="card-icon">👗</div>
+        <div>
+          <div class="card-title">服装设计创意班</div>
+          <div class="card-sub">7岁以上 · 主讲：叶青青老师</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-pink">审美力</span>
+          <span class="tag tag-pink">创造力</span>
+          <span class="tag tag-pink">动手能力</span>
+        </div>
+        <ul class="bullet-list">
+          <li>绘制服装设计效果图</li>
+          <li>学习面料与服装搭配</li>
+          <li>立体裁剪与人台制作</li>
+          <li>完成微型服装设计作品</li>
+        </ul>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="il">上课时间</div>
+            <div class="iv">Mon–Fri 3–5pm</div>
+          </div>
+          <div class="info-item">
+            <div class="il">课程周期</div>
+            <div class="iv">06/01 – 06/26</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#6b7280;margin-top:8px;">
+          📅 06/01–05 · 06/08–12 · 06/15–19 · 06/22–26
+        </p>
+        <div class="price-tag">
+          <span class="amount">$150</span>
+          <span class="unit">/ 周(5节)</span>
+          <span style="font-size:12px;color:#78350f;margin-left:6px;">$280 / 10节</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 英文阅读写作 -->
+    <div class="course-card theme-orange">
+      <div class="card-header">
+        <div class="card-icon">📖</div>
+        <div>
+          <div class="card-title">英文阅读写作班</div>
+          <div class="card-sub">1–6年级 · 主讲：Dr. Pei</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-orange">绘本阅读</span>
+          <span class="tag tag-orange">写作提升</span>
+          <span class="tag tag-orange">口语表达</span>
+        </div>
+        <ul class="bullet-list">
+          <li>掌握基础句型与词汇，独立写句子</li>
+          <li>创意活动：故事创编 · 角色扮演 · 小书制作</li>
+          <li>完成专属英文作品集</li>
+        </ul>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="il">低年级</div>
+            <div class="iv">9:30–11:00am</div>
+          </div>
+          <div class="info-item">
+            <div class="il">高年级</div>
+            <div class="iv">11:00–12:30pm</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#6b7280;margin-top:8px;">
+          📅 June 15 – July 17, 2026 · 满6人开班
+        </p>
+        <div class="price-tag">
+          <span class="amount">$150</span>
+          <span class="unit">/ 周</span>
+          <span class="old">两周享9折优惠</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 音乐剧 -->
+    <div class="course-card theme-purple">
+      <div class="card-header">
+        <div class="card-icon">🎭</div>
+        <div>
+          <div class="card-title">音乐剧专业训练班</div>
+          <div class="card-sub">5岁以上 · 主讲：李嘉骏老师</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-purple">基础班</span>
+          <span class="tag tag-purple">进阶剧目班</span>
+          <span class="tag tag-purple">中英双语</span>
+        </div>
+        <p style="font-size:13px;font-weight:600;color:#5b21b6;margin-bottom:6px;">基础班（夏令营）：</p>
+        <ul class="bullet-list" style="margin-bottom:10px;">
+          <li>声乐基础训练 · 肢体表达训练</li>
+          <li>游戏化教学，释放天性，建立舞台自信</li>
+        </ul>
+        <p style="font-size:13px;font-weight:600;color:#5b21b6;margin-bottom:6px;">进阶班（剧目班）：</p>
+        <ul class="bullet-list">
+          <li>声乐×舞蹈×表演三合一训练</li>
+          <li>完整剧目排练与舞台呈现</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 爵士舞 -->
+    <div class="course-card theme-teal">
+      <div class="card-header">
+        <div class="card-icon">💃</div>
+        <div>
+          <div class="card-title">爵士舞集训班 · Jazz Dance Camp</div>
+          <div class="card-sub">K–8 年级 · 主讲：小鱼老师</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="tag-row">
+          <span class="tag tag-teal">节奏感</span>
+          <span class="tag tag-teal">舞台气场</span>
+          <span class="tag tag-teal">自信表达</span>
+        </div>
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="il">Session 1</div>
+            <div class="iv">6/2–25 周二&四</div>
+          </div>
+          <div class="info-item">
+            <div class="il">Session 2</div>
+            <div class="iv">7/7–30 周二&四</div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;color:#6b7280;margin-top:8px;">⏰ 每次 5:30–7:30 PM</p>
+        <div class="price-tag">
+          <span class="amount">$240</span>
+          <span class="unit">/ 期</span>
+          <span style="font-size:12px;color:#78350f;margin-left:6px;">两期合报仅 $432（9折）</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /course-grid -->
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ TEACHERS ══════════════ -->
+<section>
+  <div class="section-title">
+    <div class="icon" style="background:#fef3c7;">👩‍🏫</div>
+    专业师资团队
+  </div>
+  <div class="teacher-grid">
+    <div class="teacher-card">
+      <div class="teacher-avatar">🎨</div>
+      <div>
+        <div class="teacher-name">叶青青老师</div>
+        <div class="teacher-title">资深美术 · 服装设计</div>
+        <div class="teacher-desc">从设计稿到立体裁剪，带领孩子打造属于自己的时尚作品</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">📚</div>
+      <div>
+        <div class="teacher-name">王蓉老师</div>
+        <div class="teacher-title">汉语言文学教育专家</div>
+        <div class="teacher-desc">将知识转化为能力，将文化内化为养分，秉持大语文观，课堂生动有趣</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">🎭</div>
+      <div>
+        <div class="teacher-name">李嘉骏老师（Jiajun Li）</div>
+        <div class="teacher-title">百老汇级音乐剧导师</div>
+        <div class="teacher-desc">本科中国传媒大学 · 硕士亚利桑那州立大学音乐剧专业，中英文双语教学</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">🧮</div>
+      <div>
+        <div class="teacher-name">韩涵老师</div>
+        <div class="teacher-title">BASIS 数学教师 · 数学学科负责人</div>
+        <div class="teacher-desc">ASU毕业，熟悉中美教学体系，7年一线国际数学教学经验</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">📘</div>
+      <div>
+        <div class="teacher-name">裴晓钰老师（Dr. Pei）</div>
+        <div class="teacher-title">中英双语博士</div>
+        <div class="teacher-desc">专注英文阅读写作启蒙与提升，让孩子爱上阅读、自信表达</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">💃</div>
+      <div>
+        <div class="teacher-name">小鱼老师</div>
+        <div class="teacher-title">爵士舞教师</div>
+        <div class="teacher-desc">系统训练节奏感与舞台气场，帮助孩子在舞台上闪闪发光</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">🩰</div>
+      <div>
+        <div class="teacher-name">彭弋老师</div>
+        <div class="teacher-title">北舞表演系 · 中国舞艺术家</div>
+        <div class="teacher-desc">专业舞蹈技能技巧训练，传承中国舞蹈文化</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">🔥</div>
+      <div>
+        <div class="teacher-name">黄美达老师</div>
+        <div class="teacher-title">Hip-Hop 舞蹈</div>
+        <div class="teacher-desc">街舞文化与律动启蒙，让孩子释放自我、找到节奏</div>
+      </div>
+    </div>
+    <div class="teacher-card">
+      <div class="teacher-avatar">🏺</div>
+      <div>
+        <div class="teacher-name">Mia 老师</div>
+        <div class="teacher-title">陶艺教师</div>
+        <div class="teacher-desc">引导孩子用双手感受泥土的温度，创造独一无二的艺术作品</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ CONTACT / CTA ══════════════ -->
+<div class="cta-section" id="contact">
+  <h2>🍏 名额有限 · 先报先得！</h2>
+  <p>这个暑假，不只是托管<br/>是孩子能力全面升级的关键阶段！</p>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <span class="ci">📱</span>
+      <div>
+        <div class="cl">报名咨询（袁老师）</div>
+        <div class="cv">602-628-5229</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <span class="ci">📧</span>
+      <div>
+        <div class="cl">邮箱</div>
+        <div class="cv" style="font-size:13px;">greenappleartacademy2024@gmail.com</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <span class="ci">📍</span>
+      <div>
+        <div class="cl">上课地址</div>
+        <div class="cv" style="font-size:13px;">2051 N Arizona Ave, Suite 116–117<br/>Chandler, AZ 85225</div>
+      </div>
+    </div>
+    <div class="contact-card">
+      <span class="ci">💬</span>
+      <div>
+        <div class="cl">微信公众号</div>
+        <div class="cv">GreenAppleArtAcademy</div>
+      </div>
+    </div>
+  </div>
+  <a href="tel:6026285229" class="cta-btn">📞 立即致电报名</a>
+  <p style="margin-top:16px;font-size:12px;opacity:.75;">
+    让每个孩子都找到属于自己的舞台光芒 ✨
+  </p>
+</div>
+
+<div class="footer">
+  © 2026 Green Apple Art Academy · 青苹果中文艺术学校<br/>
+  微信公众号：GreenAppleArtAcademy
+</div>
+
+<!-- ══════════════ STICKY BAR ══════════════ -->
+<div class="sticky-bar">
+  <a href="tel:6026285229" class="tel">📞 电话报名</a>
+  <a href="https://weixin.qq.com" class="wechat">💬 微信咨询</a>
+</div>
+
+</body>
+</html>
