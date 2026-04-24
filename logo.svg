@@ -1,0 +1,71 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5dd88e"/>
+      <stop offset="100%" stop-color="#1a6138"/>
+    </linearGradient>
+    <linearGradient id="appleShine" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e8faf0"/>
+    </linearGradient>
+    <filter id="dropShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.18)"/>
+    </filter>
+  </defs>
+
+  <!-- Background rounded square -->
+  <rect width="400" height="400" rx="90" fill="url(#bg)"/>
+
+  <!-- Decorative glow circles -->
+  <circle cx="330" cy="70" r="130" fill="rgba(255,255,255,0.07)"/>
+  <circle cx="70" cy="330" r="90"  fill="rgba(0,0,0,0.06)"/>
+
+  <!-- ── Apple Group ── -->
+  <g filter="url(#dropShadow)">
+
+    <!-- Stem -->
+    <path d="M 200 122 C 202 102 219 88 231 81"
+          stroke="white" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.92"/>
+
+    <!-- Leaf -->
+    <path d="M 226 86 C 244 70 268 76 263 94 C 258 110 238 107 226 86 Z"
+          fill="white" opacity="0.88"/>
+
+    <!-- Apple body (two-lobe shape) -->
+    <path d="
+      M 200 128
+      C 191 122  177 122  165 128
+      C 138 142  118 170  114 202
+      C 108 248  128 300  164 318
+      C 178 327  192 330  200 330
+      C 208 330  222 327  236 318
+      C 272 300  292 248  286 202
+      C 282 170  262 142  235 128
+      C 223 122  209 122  200 128
+      Z
+    " fill="url(#appleShine)"/>
+
+    <!-- Top center indent (the dip between the two lobes) -->
+    <ellipse cx="200" cy="129" rx="15" ry="11" fill="url(#bg)"/>
+
+  </g>
+
+  <!-- Shine highlight (left side of apple) -->
+  <ellipse cx="157" cy="200" rx="13" ry="26"
+           fill="rgba(255,255,255,0.22)"
+           transform="rotate(-22, 157, 200)"/>
+
+  <!-- ── Text ── -->
+  <!-- 青苹果 -->
+  <text x="200" y="366"
+        text-anchor="middle"
+        font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif"
+        font-size="46" font-weight="800" fill="white">青苹果</text>
+
+  <!-- 中文艺术学校 -->
+  <text x="200" y="390"
+        text-anchor="middle"
+        font-family="'PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif"
+        font-size="15" font-weight="400" fill="rgba(255,255,255,0.72)" letter-spacing="2">中文艺术学校</text>
+
+</svg>
